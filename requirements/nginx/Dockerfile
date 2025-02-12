@@ -7,7 +7,7 @@ RUN apt update \
 && apt install curl -y
 
 
-COPY nginx.conf /etc/nginx/sites-available/.
+COPY default /etc/nginx/sites-available/.
 
 # Start nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
