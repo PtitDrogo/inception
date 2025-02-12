@@ -7,4 +7,9 @@ chmod +x wp-cli.phar
 ./wp-cli.phar config create --dbname=wordpress --dbuser=wpuser --dbpass=password --dbhost=mariadb --allow-root
 ./wp-cli.phar core install --url=localhost --title=inception --admin_user=admin --admin_password=admin --admin_email=admin@admin.com --allow-root
 
+#On a l'air de creer la DB, l'admin de wp, mais pas de users.
+# a demander a chat gpt pour la continuite
+
+#on installe pas de theme
+
 php-fpm7.4 -F
