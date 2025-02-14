@@ -16,11 +16,11 @@ services:
 
   wordpress:
     build: requirements/wordpress/.
-    container_name: wp-php
+    container_name: wordpress
     depends_on:
       - mariadb
     volumes:
-      - wordpress_data:/var/www/html
+      - wordpress:/var/www/html
     networks:
       - inception
     env_file:
@@ -30,20 +30,20 @@ services:
     build: requirements/mariadb/.
     container_name: mariadb
     volumes:
-      - mariadb_data:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     networks:
       - inception
     env_file:
       - .env
 
 volumes:
-  wordpress_data:
+  wordpress:
     driver: local
     driver_opts:
       type: none
       device: /home/tfreydie/data/web
       o: bind
-  mariadb_data:
+  mariadb:
     driver: local
     driver_opts:
       type: none
