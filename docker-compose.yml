@@ -8,9 +8,11 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./web:/var/www/html
+      - wordpress_data:/var/www/html
     networks:
-      inception:
+      - inception
+    env_file:
+      - .env
 
   wordpress:
     build: requirements/wordpress/.
@@ -18,17 +20,35 @@ services:
     depends_on:
       - mariadb
     volumes:
-      - ./web:/var/www/html
+      - wordpress_data:/var/www/html
     networks:
-      inception:
-  
+      - inception
+    env_file:
+      - .env
+
   mariadb:
     build: requirements/mariadb/.
     container_name: mariadb
     volumes:
-      - ./database:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
     networks:
-      inception:
+      - inception
+    env_file:
+      - .env
+
+volumes:
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/llitot/data/web
+      o: bind
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/llitot/data/database
+      o: bind
+
 networks:
   inception:
-    
