@@ -41,13 +41,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/llitot/data/web
+      device: /home/tfreydie/data/web
       o: bind
   mariadb_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/llitot/data/database
+      device: /home/tfreydie/data/database
       o: bind
 
 networks:
