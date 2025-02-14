@@ -14,10 +14,3 @@ COPY default /etc/nginx/sites-available/.
 
 # Start nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
-
-
-# RUN mkdir -p /var/run/nginx
-# RUN chmod 755 /var/www/html
-# RUN chown -R www-data:www-data /var/www/html
-# Expose port 80
-# EXPOSE 80
